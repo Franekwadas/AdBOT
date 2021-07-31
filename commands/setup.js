@@ -5,7 +5,17 @@ module.exports = {
 
     execute(message, args, client) {
 
-        
+        var config = client.configFile.find(g => g.guildId == message.guild.id);
+
+        if (config.inConfiguration) {
+
+            
+
+        } else {
+
+            message.channel.send("**Jm sorry but its looks like someone else configurated me before you!**")
+
+        }
 
     }
 
