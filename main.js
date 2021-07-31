@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const keepAlive = require('./server');
 const Client = new Discord.Client();
 const fs = require('fs');
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -59,5 +60,18 @@ Client.on('message', message => {
     }
 
 });
+
+Client.updateConfig = () => {
+
+    try {
+        var appconfig = Client.configFile;
+    } catch (error) {
+        console.error(error);
+    }
+
+    fs.writeFileSync('./appconfig.json', JSON.stringify(appconfig));
+
+}
+keepAlive();
 
 Client.login('');
