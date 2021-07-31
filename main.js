@@ -74,4 +74,4 @@ Client.updateConfig = () => {
 }
 keepAlive();
 
-Client.login('');
+Client.login(process.env['TOKEN']);
